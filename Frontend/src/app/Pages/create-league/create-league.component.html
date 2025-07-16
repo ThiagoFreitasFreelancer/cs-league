@@ -52,5 +52,11 @@
         </button>
       </div>
     </form>
+    <div *ngIf="successMessage" class="success-message">
+      <span>{{ successMessage }}</span>
+      <button class="btn btn-secondary mt-2" (click)="goToLeagueDetails()" *ngIf="createdLeagueId">
+        Ver detalhes da liga
+      </button>
+    </div>
   </div>
 </div>

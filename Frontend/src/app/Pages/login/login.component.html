@@ -36,11 +36,14 @@
           Entrar
         </button>
       </div>
+      <div *ngIf="loginError" class="error-message text-center mt-2">
+        {{ loginError }}
+      </div>
     </form>
 
     <div class="text-center mt-4">
       <p class="text-small text-gray-600">Ou</p>
-      <button (click)="loginWithSteam()" class="btn btn-steam mt-4">
+      <button (click)="loginWithSteam()" class="btn btn-steam mt-4" type="button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam Logo">
         Entrar com Steam
       </button>

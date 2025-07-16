@@ -31,4 +31,43 @@
 .text-red-500 { color: #dc2626; }
 .text-md { font-size: 1.05rem; }
 .text-gray-800 { color: var(--gray-800); }
-.mb-2 { margin-bottom: 0.5rem; } 
+.mb-2 { margin-bottom: 0.5rem; }
+.success-message {
+  background: #e6ffed;
+  color: #256029;
+  border: 1px solid #b7eb8f;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.btn-secondary {
+  background: #fff;
+  color: var(--primary, #2563eb);
+  border: 1px solid var(--primary, #2563eb);
+  margin-top: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-secondary:hover {
+  background: var(--primary, #2563eb);
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .form-wrapper {
+    padding: 1rem;
+    max-width: 100%;
+  }
+  .form-header {
+    font-size: 1.2rem;
+  }
+  .form-subtitle {
+    font-size: 0.95rem;
+  }
+} 

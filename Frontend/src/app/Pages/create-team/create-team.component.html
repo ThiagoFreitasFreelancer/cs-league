@@ -68,5 +68,11 @@
         </button>
       </div>
     </form>
+    <div *ngIf="successMessage" class="success-message">
+      <span>{{ successMessage }}</span>
+      <button class="btn btn-secondary mt-2" (click)="goToTeamDetails()" *ngIf="createdTeamId">
+        Ver detalhes do time
+      </button>
+    </div>
   </div>
 </div> 

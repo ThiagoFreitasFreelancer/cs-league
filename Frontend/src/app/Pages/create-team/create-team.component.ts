@@ -17,6 +17,8 @@ export class CreateTeamComponent implements OnInit {
   searchUserQuery: string = '';
   searchResults: any[] = [];
   invitedMembers: any[] = [];
+  successMessage: string = '';
+  createdTeamId: number | null = null;
 
   // Simulação de usuários disponíveis para convite
   availableUsers = [
@@ -65,10 +67,23 @@ export class CreateTeamComponent implements OnInit {
         members: this.invitedMembers.map(member => member.id)
       };
       console.log('Dados do Novo Time:', newTeamData);
-      alert(`Time "${newTeamData.teamName}" criado com sucesso! Convites enviados.`);
-      this.router.navigate(['/dashboard']);
+      // Simula criação de time e gera um ID aleatório
+      this.createdTeamId = Math.floor(Math.random() * 10000) + 1;
+      this.successMessage = `Time "${newTeamData.teamName}" criado com sucesso! Convites enviados.`;
+      this.createTeamForm.reset();
+      this.invitedMembers = [];
+      this.searchResults = [];
+      this.searchUserQuery = '';
+      // Não redireciona automaticamente
     } else {
+      this.successMessage = '';
       alert('Por favor, preencha o nome e a tag do time corretamente.');
+    }
+  }
+
+  goToTeamDetails(): void {
+    if (this.createdTeamId) {
+      this.router.navigate(['/team-details', this.createdTeamId]);
     }
   }
 } 

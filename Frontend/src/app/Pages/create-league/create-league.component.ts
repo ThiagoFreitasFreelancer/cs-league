@@ -13,6 +13,9 @@ import { RouterModule } from '@angular/router';
 })
 export class CreateLeagueComponent implements OnInit {
   createLeagueForm: FormGroup;
+  createdLeagueId: number | null = null;
+  createdLeagueName: string = '';
+  successMessage: string = '';
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.createLeagueForm = this.fb.group({
@@ -27,15 +30,21 @@ export class CreateLeagueComponent implements OnInit {
 
   onSubmit(): void {
     if (this.createLeagueForm.valid) {
-      console.log('Dados da Nova Liga:', this.createLeagueForm.value);
-      // Lógica para criar a liga (chamar API de backend)
-      // Exemplo: this.leagueService.createLeague(this.createLeagueForm.value).subscribe(...)
-
-      // Simulação de criação de liga bem-sucedida
-      alert(`Liga "${this.createLeagueForm.value.leagueName}" criada com sucesso!`);
-      this.router.navigate(['/dashboard']); // Redireciona para o dashboard
+      // Simulação de criação de liga bem-sucedida com ID aleatório
+      this.createdLeagueId = Math.floor(Math.random() * 10000) + 1;
+      this.createdLeagueName = this.createLeagueForm.value.leagueName;
+      this.successMessage = `Liga "${this.createdLeagueName}" criada com sucesso!`;
+      // Limpa o formulário
+      this.createLeagueForm.reset({ isPublic: true });
     } else {
+      this.successMessage = '';
       alert('Por favor, preencha o nome da liga e verifique os campos.');
+    }
+  }
+
+  goToLeagueDetails(): void {
+    if (this.createdLeagueId) {
+      this.router.navigate(['/league-details', this.createdLeagueId]);
     }
   }
 }

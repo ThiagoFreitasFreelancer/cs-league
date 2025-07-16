@@ -1,6 +1,6 @@
 <div *ngIf="isAdmin" class="admin-section">
   <h2>Gerenciamento de Jogos</h2>
-  <button (click)="openAddGameModal()">Adicionar Novo Jogo</button>
+  <button class="btn btn-primary" (click)="openAddGameModal()">Adicionar Novo Jogo</button>
 
   <table>
     <thead>
@@ -19,8 +19,8 @@
         <td>{{ game.team2 }}</td>
         <td>{{ game.date | date:'short' }}</td>
         <td>
-          <button (click)="editGame(game)">Editar</button>
-          <button (click)="deleteGame(game.id)">Excluir</button>
+          <button class="btn edit-button" (click)="editGame(game)">Editar</button>
+          <button class="btn delete-button" (click)="deleteGame(game.id)">Excluir</button>
         </td>
       </tr>
     </tbody>
@@ -32,16 +32,16 @@
     <h3>{{ editingGame ? 'Editar Jogo' : 'Adicionar Novo Jogo' }}</h3>
     <form (ngSubmit)="saveGame()">
       <label for="team1">Time 1:</label>
-      <input type="text" id="team1" [(ngModel)]="currentGame.team1" name="team1" required>
+      <input class="input-field" type="text" id="team1" [(ngModel)]="currentGame.team1" name="team1" required>
 
       <label for="team2">Time 2:</label>
-      <input type="text" id="team2" [(ngModel)]="currentGame.team2" name="team2" required>
+      <input class="input-field" type="text" id="team2" [(ngModel)]="currentGame.team2" name="team2" required>
 
       <label for="date">Data:</label>
-      <input type="datetime-local" id="date" [(ngModel)]="currentGame.date" name="date" required>
+      <input class="input-field" type="datetime-local" id="date" [(ngModel)]="currentGame.date" name="date" required>
 
-      <button type="submit">Salvar</button>
-      <button type="button" (click)="closeGameModal()">Cancelar</button>
+      <button class="btn btn-primary" type="submit">Salvar</button>
+      <button class="btn btn-secondary" type="button" (click)="closeGameModal()">Cancelar</button>
     </form>
   </div>
 </div>

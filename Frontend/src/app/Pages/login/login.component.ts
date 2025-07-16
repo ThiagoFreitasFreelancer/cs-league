@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  loginError: string = '';
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
@@ -30,10 +31,11 @@ export class LoginComponent implements OnInit {
       // Exemplo: this.authService.login(this.loginForm.value).subscribe(...)
 
       // Simulação de login bem-sucedido
+      this.loginError = '';
       alert('Login realizado com sucesso!');
       this.router.navigate(['/dashboard']);
     } else {
-      alert('Por favor, preencha todos os campos corretamente.');
+      this.loginError = 'Por favor, preencha todos os campos corretamente.';
     }
   }
 

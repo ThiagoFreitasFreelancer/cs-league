@@ -250,6 +250,55 @@
     font-size: 1.2em;
   }
   
+  /* Utilitários de botões */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-right: 0.5rem;
+}
+.btn-primary {
+  background: var(--primary, #2563eb);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--primary-dark, #1e40af);
+}
+.edit-button {
+  background: #ffc107;
+  color: #333;
+}
+.edit-button:hover {
+  background: #e0a800;
+}
+.delete-button {
+  background: #dc3545;
+  color: #fff;
+}
+.delete-button:hover {
+  background: #c82333;
+}
+@media (max-width: 600px) {
+  .section-card {
+    padding: 10px;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .league-header h1 {
+    font-size: 1.5em;
+  }
+  .section-title {
+    font-size: 1.1em;
+  }
+}
+  
   /* Responsividade Básica */
   @media (max-width: 768px) {
     .league-detail-container {

@@ -165,3 +165,77 @@
   .modal-content form button[type="button"]:hover {
     background-color: #5a6268;
   }
+
+/* Utilitários de botões e inputs */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-right: 0.5rem;
+}
+.btn-primary {
+  background: var(--primary, #2563eb);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--primary-dark, #1e40af);
+}
+.btn-secondary {
+  background: #fff;
+  color: var(--primary, #2563eb);
+  border: 1px solid var(--primary, #2563eb);
+}
+.btn-secondary:hover {
+  background: var(--primary, #2563eb);
+  color: #fff;
+}
+.edit-button {
+  background: #ffc107;
+  color: #333;
+}
+.edit-button:hover {
+  background: #e0a800;
+}
+.delete-button {
+  background: #dc3545;
+  color: #fff;
+}
+.delete-button:hover {
+  background: #c82333;
+}
+.input-field {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #4a4a7a;
+  color: #f0f0f0;
+  margin-bottom: 1rem;
+}
+.input-field:focus {
+  border-color: var(--primary, #2563eb);
+  outline: none;
+}
+@media (max-width: 600px) {
+  .admin-section {
+    padding: 10px;
+  }
+  table th, table td {
+    padding: 8px 6px;
+    font-size: 0.95rem;
+  }
+  .modal-content {
+    padding: 10px;
+    max-width: 98vw;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
