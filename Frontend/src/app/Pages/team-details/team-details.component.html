@@ -1,0 +1,18 @@
+<div class="page-container">
+  <div class="details-card max-width-narrow">
+    <h1 class="details-card-title mb-2">{{ team.name }}</h1>
+    <p class="text-gray-600 mb-2">{{ team.description }}</p>
+    <div class="mb-4 team-stats-row">
+      <span class="stat-badge stat-badge-wins">Vitórias: {{ team.wins }}</span>
+      <span class="stat-badge stat-badge-losses">Derrotas: {{ team.losses }}</span>
+    </div>
+    <div>
+      <h2 class="section-subtitle mb-2">Membros do Time</h2>
+      <ul class="members-list">
+        <li *ngFor="let member of team.members" class="members-list-item">
+          <span class="member-name">{{ member.username }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> 

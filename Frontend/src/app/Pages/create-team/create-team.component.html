@@ -1,0 +1,72 @@
+<div class="form-container">
+  <div class="form-wrapper max-w-2xl">
+    <div>
+      <h2 class="form-header">
+        Criar Novo Time
+      </h2>
+      <p class="form-subtitle">
+        Reúna seus amigos e prepare-se para a competição!
+      </p>
+    </div>
+    <form class="form-group-spacing" [formGroup]="createTeamForm" (ngSubmit)="onCreateTeam()">
+      <div class="form-group">
+        <label for="team-name" class="form-label">Nome do Time</label>
+        <input id="team-name" name="teamName" type="text" required
+          formControlName="teamName"
+          class="input-field"
+          placeholder="Ex: Os Vingadores do CS">
+        <div *ngIf="createTeamForm.get('teamName')?.invalid && createTeamForm.get('teamName')?.touched" class="error-message">
+          O nome do time é obrigatório.
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <label for="team-tag" class="form-label">Tag do Time (Máx. 5 caracteres)</label>
+        <input id="team-tag" name="teamTag" type="text" required
+          formControlName="teamTag"
+          class="input-field"
+          placeholder="Ex: VNG">
+        <div *ngIf="createTeamForm.get('teamTag')?.invalid && createTeamForm.get('teamTag')?.touched" class="error-message">
+          <div *ngIf="createTeamForm.get('teamTag')?.errors?.['required']">A tag do time é obrigatória.</div>
+          <div *ngIf="createTeamForm.get('teamTag')?.errors?.['maxlength']">A tag deve ter no máximo 5 caracteres.</div>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <h3 class="section-subtitle-small">Convidar Membros</h3>
+        <div class="flex-row-spacing mb-4">
+          <input type="text" [(ngModel)]="searchUserQuery" (ngModelChange)="onSearchUsers()" [ngModelOptions]="{standalone: true}"
+            class="input-field flex-grow"
+            placeholder="Buscar usuário por nome...">
+        </div>
+        <div *ngIf="searchResults.length > 0" class="search-results-list mb-4">
+          <ul>
+            <li *ngFor="let user of searchResults">
+              <span>{{ user.username }} ({{ user.email }})</span>
+              <button (click)="inviteUser(user)" type="button" class="btn btn-primary btn-small ml-4">
+                Convidar
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="invitedMembers.length > 0" class="mt-4">
+          <h4 class="text-md font-medium text-gray-800 mb-2">Membros Convidados:</h4>
+          <ul class="invited-members-list">
+            <li *ngFor="let member of invitedMembers">
+              <span>{{ member.username }}</span>
+              <button (click)="removeInvitedUser(member)" type="button" class="btn-link text-red-500 ml-4">
+                Remover
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">
+          Criar Time
+        </button>
+      </div>
+    </form>
+  </div>
+</div> 

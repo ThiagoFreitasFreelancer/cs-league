@@ -1,0 +1,64 @@
+<div class="league-detail-container" *ngIf="league && !isLoading">
+  <header class="league-header">
+    <h1>{{ league.name }}</h1>
+    <p class="league-description">{{ league.description }}</p>
+    <div class="league-meta">
+      <span>Início: {{ league.startDate | date:'mediumDate' }}</span>
+      <span>Fim: {{ league.endDate | date:'mediumDate' }}</span>
+      <span class="status-badge status-{{ league.status }}">{{ league.status | uppercase }}</span>
+    </div>
+  </header>
+
+  <section class="league-content">
+    <div class="section-card">
+      <h2 class="section-title">Chaveamento do Torneio</h2>
+      <div class="bracket-placeholder">
+        <img src="assets/images/image_6eae80.png" alt="Chaveamento do Torneio" class="responsive-image">
+        <p>O chaveamento do torneio será exibido aqui, refletindo o progresso da liga.</p>
+      </div>
+    </div>
+
+    <div class="section-card league-teams-management" *ngIf="isAdmin">
+      <h2 class="section-title">Gerenciamento de Equipes da Liga
+        <button class="add-team-button" (click)="addTeamToLeague()">Adicionar Equipe</button>
+      </h2>
+
+      <div cdkDropList (cdkDropListDropped)="drop($event)" class="team-list">
+        <div class="team-header-row">
+          <div class="team-cell header-cell">Posição</div>
+          <div class="team-cell header-cell">Logo</div>
+          <div class="team-cell header-cell">Nome da Equipe</div>
+          <div class="team-cell header-cell">Vitórias</div>
+          <div class="team-cell header-cell">Derrotas</div>
+          <div class="team-cell header-cell">Pontos</div>
+          <div class="team-cell header-cell actions-cell">Ações</div>
+        </div>
+
+        <div class="team-row" *ngFor="let team of league.teams; let i = index" cdkDrag>
+          <div class="team-drag-handle" cdkDragHandle>☰</div>
+          <div class="team-cell position-cell">{{ team.seed }}</div>
+          <div class="team-cell logo-cell">
+            <img [src]="team.logoUrl || 'assets/images/default-team-logo.png'" alt="{{ team.name }} Logo">
+          </div>
+          <div class="team-cell name-cell">{{ team.name }}</div>
+          <div class="team-cell stat-cell">{{ team.wins }}</div>
+          <div class="team-cell stat-cell">{{ team.losses }}</div>
+          <div class="team-cell stat-cell">{{ team.points }}</div>
+          <div class="team-cell actions-cell">
+            <button class="edit-button" (click)="editTeam(team)">Editar</button>
+            <button class="remove-button" (click)="removeTeam(team.id)">Remover</button>
+          </div>
+        </div>
+      </div>
+      <p *ngIf="league.teams.length === 0" class="no-teams-message">Nenhuma equipe registrada nesta liga ainda.</p>
+    </div>
+  </section>
+</div>
+
+<div *ngIf="isLoading" class="loading-spinner">
+  Carregando detalhes da liga...
+</div>
+
+<div *ngIf="!league && !isLoading" class="not-found-message">
+  Liga não encontrada.
+</div>

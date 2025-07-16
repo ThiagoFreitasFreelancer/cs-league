@@ -1,0 +1,55 @@
+<div class="form-container">
+  <div class="form-wrapper">
+    <div>
+      <h2 class="form-header">
+        Faça login na sua conta
+      </h2>
+    </div>
+    <form class="form-group-spacing" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-fields-group">
+        <div class="form-group">
+          <label for="email-address" class="sr-only">Endereço de Email</label>
+          <input id="email-address" name="email" type="email" autocomplete="email" required
+            formControlName="email"
+            class="input-field form-field-top"
+            placeholder="Endereço de Email">
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+            <div *ngIf="loginForm.get('email')?.errors?.['required']">Email é obrigatório.</div>
+            <div *ngIf="loginForm.get('email')?.errors?.['email']">Email inválido.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password" class="sr-only">Senha</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required
+            formControlName="password"
+            class="input-field form-field-bottom"
+            placeholder="Senha">
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+            <div *ngIf="loginForm.get('password')?.errors?.['required']">Senha é obrigatória.</div>
+            <div *ngIf="loginForm.get('password')?.errors?.['minlength']">A senha deve ter pelo menos 6 caracteres.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          Entrar
+        </button>
+      </div>
+    </form>
+
+    <div class="text-center mt-4">
+      <p class="text-small text-gray-600">Ou</p>
+      <button (click)="loginWithSteam()" class="btn btn-steam mt-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam Logo">
+        Entrar com Steam
+      </button>
+    </div>
+
+    <div class="text-center text-small mt-4">
+      <a routerLink="/register" class="text-link">
+        Não tem uma conta? Cadastre-se
+      </a>
+    </div>
+  </div>
+</div>

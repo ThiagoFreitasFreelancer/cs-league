@@ -1,0 +1,56 @@
+<div class="form-container">
+
+  <div class="form-wrapper max-w-2xl">
+    <div>
+      <h2 class="form-header">
+        Criar Nova Liga
+      </h2>
+      <p class="form-subtitle">
+        Organize suas competições de Counter-Strike 2.
+      </p>
+    </div>
+    <form class="form-group-spacing" [formGroup]="createLeagueForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="league-name" class="form-label">Nome da Liga</label>
+        <input id="league-name" name="leagueName" type="text" required
+          formControlName="leagueName"
+          class="input-field"
+          placeholder="Ex: Liga dos Campeões CS2">
+        <div *ngIf="createLeagueForm.get('leagueName')?.invalid && createLeagueForm.get('leagueName')?.touched" class="error-message">
+          <div *ngIf="createLeagueForm.get('leagueName')?.errors?.['required']">O nome da liga é obrigatório.</div>
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <label for="description" class="form-label">Descrição (Opcional)</label>
+        <textarea id="description" name="description" rows="3"
+          formControlName="description"
+          class="textarea-field"
+          placeholder="Uma breve descrição sobre a liga..."></textarea>
+        <div *ngIf="createLeagueForm.get('description')?.errors?.['maxlength']" class="error-message">
+          A descrição não pode ter mais de 500 caracteres.
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <label for="rules" class="form-label">Regras (Opcional)</label>
+        <textarea id="rules" name="rules" rows="5"
+          formControlName="rules"
+          class="textarea-field"
+          placeholder="Detalhes sobre o formato, pontuação, etc."></textarea>
+      </div>
+      <div class="form-group mt-4 flex items-center">
+        <input id="is-public" name="isPublic" type="checkbox"
+          formControlName="isPublic"
+          class="checkbox-field">
+        <label for="is-public" class="ml-2 text-sm text-gray-900">
+          Tornar esta liga pública (visível para todos)
+        </label>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          Criar Liga
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

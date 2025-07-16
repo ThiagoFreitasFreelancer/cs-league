@@ -1,0 +1,309 @@
+/* Container principal e tipografia */
+.league-detail-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #1a1a2e; /* Fundo escuro principal */
+    color: #e0e0e0; /* Cor do texto claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Cabeçalho da Liga */
+  .league-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+  }
+  
+  .league-header h1 {
+    font-size: 2.8em;
+    color: #8be9fd; /* Cor vibrante para título */
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px rgba(139, 233, 253, 0.5);
+  }
+  
+  .league-description {
+    font-size: 1.1em;
+    color: #b0b0b0;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 20px;
+  }
+  
+  .league-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 0.95em;
+    color: #a0a0a0;
+  }
+  
+  .status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+  
+  .status-upcoming { background-color: #ffc107; color: #333; } /* Amarelo */
+  .status-ongoing { background-color: #28a745; color: white; } /* Verde */
+  .status-completed { background-color: #6c757d; color: white; } /* Cinza */
+  
+  /* Seções de Conteúdo (Chaveamento, Gerenciamento de Equipes) */
+  .section-card {
+    background-color: #2c2c54; /* Fundo de card mais claro que o principal */
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .section-title {
+    font-size: 1.8em;
+    color: #8be9fd;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #007bff;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Chaveamento do Torneio */
+  .bracket-placeholder {
+    text-align: center;
+  }
+  
+  .bracket-placeholder .responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .bracket-placeholder p {
+    margin-top: 20px;
+    color: #b0b0b0;
+    font-style: italic;
+  }
+  
+  /* Gerenciamento de Equipes da Liga */
+  .league-teams-management .add-team-button {
+    background-color: #28a745; /* Verde para adicionar */
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .league-teams-management .add-team-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Estilo da Lista de Equipes (usando display grid para a "tabela") */
+  .team-list {
+    display: grid;
+    grid-template-columns: 30px 50px 2fr 1fr 1fr 1fr 1.5fr; /* Ajuste as colunas conforme necessário */
+    gap: 5px 10px;
+    align-items: center;
+    background-color: #3b3b64; /* Fundo da tabela */
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+  }
+  
+  .team-header-row {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    display: contents; /* Permite que os filhos se comportem como itens de grade diretamente */
+    font-weight: bold;
+    color: #f0f0f0;
+    background-color: #4a4a7a;
+    padding: 10px 0;
+    border-bottom: 1px solid #5d5d8e;
+  }
+  
+  .team-header-row .header-cell {
+    padding: 10px 15px;
+    text-align: left;
+    border-right: 1px solid #5d5d8e;
+  }
+  
+  .team-header-row .header-cell:last-child {
+    border-right: none;
+  }
+  
+  .team-row {
+    display: contents; /* Cada linha se comporta como um conjunto de itens de grade */
+    transition: background-color 0.2s ease;
+  }
+  
+  .team-row:hover {
+    background-color: #4f4f81;
+  }
+  
+  .team-cell {
+    padding: 10px 15px;
+    border-bottom: 1px solid #4a4a7a;
+    text-align: left;
+  }
+  
+  .team-row:last-child .team-cell {
+    border-bottom: none;
+  }
+  
+  .team-cell.position-cell {
+    font-weight: bold;
+    text-align: center;
+    color: #8be9fd;
+  }
+  
+  .team-cell.logo-cell img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+  }
+  
+  .team-cell.name-cell {
+    font-weight: bold;
+  }
+  
+  .team-cell.stat-cell {
+    text-align: center;
+  }
+  
+  .team-cell.actions-cell {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  
+  .team-cell.actions-cell button {
+    padding: 6px 10px;
+    font-size: 0.85em;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .team-cell.actions-cell .edit-button {
+    background-color: #ffc107; /* Amarelo */
+    color: #333;
+  }
+  
+  .team-cell.actions-cell .edit-button:hover {
+    background-color: #e0a800;
+  }
+  
+  .team-cell.actions-cell .remove-button {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+  }
+  
+  .team-cell.actions-cell .remove-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Estilo para o drag handle */
+  .team-drag-handle {
+    cursor: grab;
+    font-size: 1.2em;
+    color: #b0b0b0;
+    text-align: center;
+    padding: 0 5px;
+    width: 30px; /* Largura da coluna do handle */
+    border-bottom: 1px solid #4a4a7a;
+  }
+  
+  .team-row:last-child .team-drag-handle {
+    border-bottom: none;
+  }
+  
+  /* Estilo para o item arrastado (CDK) */
+  .cdk-drag-placeholder {
+    opacity: 0.5;
+    background-color: #6a6a99;
+    border: 2px dashed #8be9fd;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .cdk-drop-list-dragging .cdk-drag:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  /* Mensagens de estado */
+  .loading-spinner, .not-found-message, .no-teams-message {
+    text-align: center;
+    color: #b0b0b0;
+    margin-top: 50px;
+    font-size: 1.2em;
+  }
+  
+  /* Responsividade Básica */
+  @media (max-width: 768px) {
+    .league-detail-container {
+      padding: 15px;
+      margin: 10px;
+    }
+  
+    .league-header h1 {
+      font-size: 2em;
+    }
+  
+    .league-meta {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .section-title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 1.5em;
+    }
+  
+    .team-list {
+      grid-template-columns: 30px 1fr 1.5fr; /* Simplifica colunas para telas menores */
+    }
+  
+    .team-header-row {
+      display: none; /* Esconde o cabeçalho da tabela em telas muito pequenas */
+    }
+  
+    .team-cell {
+      border-bottom: none;
+    }
+  
+    .team-cell.position-cell,
+    .team-cell.stat-cell {
+      text-align: left;
+      grid-column: span 1;
+    }
+  
+    .team-cell.logo-cell {
+      grid-column: 2 / 3;
+      grid-row: span 2;
+      align-self: center;
+    }
+    .team-cell.name-cell {
+      grid-column: 3 / -1;
+      grid-row: 1;
+    }
+    .team-cell.actions-cell {
+      grid-column: 2 / -1;
+      grid-row: 2;
+      justify-content: flex-start;
+      padding-top: 0;
+    }
+  }
