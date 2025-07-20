@@ -1,0 +1,21 @@
+<div ng-controller="LeagueTeamsTableController as vm">
+  <div class="header-section">
+    <h2>Gerenciamento de Equipes da Liga</h2>
+    <button class="btn btn-primary" ng-click="vm.openAddTeamModal()">
+      <i class="fas fa-plus"></i> Adicionar Equipe
+    </button>
+  </div>
+
+  <div class="search-filter-section">
+    <input type="text" ng-model="vm.gridOptions.quickFilterText" placeholder="Buscar equipes..." class="form-control"/>
+  </div>
+
+  <div ui-grid="vm.gridOptions" ui-grid-pagination ui-grid-auto-resize ui-grid-selection class="league-teams-grid" style="min-height: 350px;">
+    <div ng-if="vm.isLoading" class="loading-overlay">
+      <i class="fas fa-spinner fa-spin"></i> Carregando equipes...
+    </div>
+    <div ng-if="!vm.isLoading && vm.teams.length === 0" class="no-teams-message">
+      Nenhuma equipe encontrada. Adicione uma nova equipe para começar!
+    </div>
+  </div>
+</div>

@@ -16,6 +16,11 @@ export class CreateLeagueComponent implements OnInit {
   createdLeagueId: number | null = null;
   createdLeagueName: string = '';
   successMessage: string = '';
+  leagues: { id: number, name: string, status: string }[] = [
+    { id: 1, name: 'Liga dos Campeões', status: 'Ativa' },
+    { id: 2, name: 'Liga Prata', status: 'Finalizada' },
+    { id: 3, name: 'Liga Bronze', status: 'Ativa' }
+  ];
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.createLeagueForm = this.fb.group({
@@ -46,5 +51,9 @@ export class CreateLeagueComponent implements OnInit {
     if (this.createdLeagueId) {
       this.router.navigate(['/league-details', this.createdLeagueId]);
     }
+  }
+
+  goToLeagueDetailsById(id: number): void {
+    this.router.navigate(['/league-details', id]);
   }
 }

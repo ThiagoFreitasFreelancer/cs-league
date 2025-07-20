@@ -19,6 +19,11 @@ export class CreateTeamComponent implements OnInit {
   invitedMembers: any[] = [];
   successMessage: string = '';
   createdTeamId: number | null = null;
+  teams: { id: number, name: string, members: string[] }[] = [
+    { id: 1, name: 'Os Vingadores do CS', members: ['Jogador1', 'Jogador2'] },
+    { id: 2, name: 'Time Prata', members: ['Jogador3'] },
+    { id: 3, name: 'Time Bronze', members: ['Jogador4', 'Jogador1'] }
+  ];
 
   // Simulação de usuários disponíveis para convite
   availableUsers = [
@@ -85,5 +90,9 @@ export class CreateTeamComponent implements OnInit {
     if (this.createdTeamId) {
       this.router.navigate(['/team-details', this.createdTeamId]);
     }
+  }
+
+  goToTeamDetailsById(id: number): void {
+    this.router.navigate(['/team-details', id]);
   }
 } 

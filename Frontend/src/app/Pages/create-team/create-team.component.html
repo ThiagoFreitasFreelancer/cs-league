@@ -74,5 +74,20 @@
         Ver detalhes do time
       </button>
     </div>
+    <div class="teams-list-section">
+      <h3 class="section-title">Times Existentes</h3>
+      <div *ngIf="teams.length > 0; else noTeams">
+        <ul class="teams-list">
+          <li *ngFor="let team of teams" class="team-list-item">
+            <span class="team-name">{{ team.name }}</span>
+            <span class="team-members">Membros: {{ team.members.join(', ') }}</span>
+            <button class="btn btn-secondary ml-2" (click)="goToTeamDetailsById(team.id)">Ver Detalhes</button>
+          </li>
+        </ul>
+      </div>
+      <ng-template #noTeams>
+        <p class="text-gray-600">Nenhum time cadastrado.</p>
+      </ng-template>
+    </div>
   </div>
 </div> 

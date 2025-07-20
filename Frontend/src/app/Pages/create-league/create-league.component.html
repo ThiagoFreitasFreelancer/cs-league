@@ -58,5 +58,20 @@
         Ver detalhes da liga
       </button>
     </div>
+    <div class="leagues-list-section">
+      <h3 class="section-title">Ligas Existentes</h3>
+      <div *ngIf="leagues.length > 0; else noLeagues">
+        <ul class="leagues-list">
+          <li *ngFor="let league of leagues" class="league-list-item">
+            <span class="league-name">{{ league.name }}</span>
+            <span class="league-status">({{ league.status }})</span>
+            <button class="btn btn-secondary ml-2" (click)="goToLeagueDetailsById(league.id)">Ver Detalhes</button>
+          </li>
+        </ul>
+      </div>
+      <ng-template #noLeagues>
+        <p class="text-gray-600">Nenhuma liga cadastrada.</p>
+      </ng-template>
+    </div>
   </div>
 </div>

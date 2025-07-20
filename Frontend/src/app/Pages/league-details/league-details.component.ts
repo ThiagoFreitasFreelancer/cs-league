@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgFor, NgIf, DatePipe } from '@angular/common'; // Import DatePipe
 import { ActivatedRoute } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, CdkDrag, CdkDropList } from '@angular/cdk/drag-drop'; // Importar módulos do CDK Drag and Drop
-
 // Importe as interfaces que definimos
 import { League, Team, Player } from '../../Models/interfaces'; // Ajuste o caminho se necessário
 

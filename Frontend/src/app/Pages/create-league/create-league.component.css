@@ -44,6 +44,45 @@
   background: var(--primary, #2563eb);
   color: #fff;
 }
+.leagues-list-section {
+  margin-top: 2.5rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary, #2563eb);
+  margin-bottom: 1rem;
+}
+.leagues-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.league-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.league-list-item:last-child {
+  border-bottom: none;
+}
+.league-name {
+  font-weight: 500;
+  color: #222;
+}
+.league-status {
+  color: #64748b;
+  font-size: 0.98rem;
+  margin-left: 0.5rem;
+}
+.ml-2 { margin-left: 0.5rem; }
+.text-gray-600 { color: #64748b; }
 @media (max-width: 600px) {
   .form-wrapper {
     padding: 1rem;
