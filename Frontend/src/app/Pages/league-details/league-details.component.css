@@ -356,3 +356,175 @@
       padding-top: 0;
     }
   }
+
+/* --- BRACKET ESTILO PLAY-OFF AVANÇADO --- */
+.bracket-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  background: #10243a;
+  padding: 40px 0 60px 0;
+  min-height: 500px;
+  position: relative;
+  gap: 64px;
+}
+
+.bracket-round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 180px;
+  position: relative;
+  gap: 64px;
+}
+
+.round-title {
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.bracket-matches {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.bracket-match {
+  background: transparent;
+  border: none;
+  min-width: 160px;
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+.team-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 1em;
+  margin-bottom: 2px;
+}
+
+.team-name {
+  min-width: 80px;
+  font-weight: 500;
+}
+
+.score-input {
+  width: 36px;
+  background: #1e293b;
+  color: #fff;
+  border: 1px solid #38bdf8;
+  border-radius: 4px;
+  text-align: center;
+  margin-left: 4px;
+}
+
+.winner-btn {
+  margin-top: 4px;
+  background: #38bdf8;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 2px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+  transition: background 0.2s;
+}
+.winner-btn:hover {
+  background: #0ea5e9;
+}
+
+.winner-label {
+  color: #22c55e;
+  font-size: 0.95em;
+  margin-top: 2px;
+  align-self: center;
+}
+
+/* Linhas do bracket conectando rounds */
+.bracket-round:not(:last-child) .bracket-match {
+  /* espaço para as linhas */
+  padding-right: 40px;
+}
+
+.bracket-round:not(:last-child) .bracket-match::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 40px;
+  height: 0;
+  border-top: 3px solid #fff;
+  z-index: 1;
+}
+
+/* Linhas verticais conectando partidas de rounds diferentes */
+.bracket-round:not(:last-child) .bracket-match::before {
+  content: '';
+  position: absolute;
+  right: -1px;
+  width: 0;
+  height: calc(50% + 32px);
+  border-right: 3px solid #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: none;
+}
+
+/* Ativa a linha vertical apenas para as partidas que não são a última do round */
+.bracket-match:not(:last-child)::before {
+  display: block;
+}
+
+/* Centraliza o botão Play-Off */
+.playoff-btn {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #22c55e;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 24px;
+  padding: 8px 32px;
+  font-size: 1.3em;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .bracket-container {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+    padding: 16px 0;
+    gap: 24px;
+  }
+  .bracket-round {
+    flex-direction: row;
+    min-width: 0;
+    margin: 0 0 32px 0;
+    justify-content: center;
+    gap: 24px;
+  }
+  .bracket-matches {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+/* --- FIM DO BRACKET --- */

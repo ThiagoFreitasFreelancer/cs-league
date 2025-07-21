@@ -1,4 +1,4 @@
-<div class="league-detail-container" ng-if="league && !isLoading">
+<div class="league-detail-container" *ngIf="league && !isLoading">
   <header class="league-header">
     <h1>{{ league.name || '' }}</h1>
     <p class="league-description">{{ league.description }}</p>
@@ -12,23 +12,28 @@
   <section class="league-content">
     <div class="section-card">
       <h2 class="section-title">Chaveamento do Torneio</h2>
-      <div class="bracket-placeholder">
-        <img src="assets/images/image_6eae80.png" alt="Chaveamento do Torneio" class="responsive-image">
-        <p>O chaveamento do torneio será exibido aqui, refletindo o progresso da liga.</p>
-      </div>
+      <app-league-bracket [teams]="league.teams || []"></app-league-bracket>
     </div>
 
-    <div class="section-card league-teams-management" ng-if="isAdmin">
+    <div class="section-card league-teams-management" *ngIf="isAdmin">
       <h2 class="section-title">Gerenciamento de Equipes da Liga</h2>
-      <div ng-include="'Components/league-teams-table/league-teams-table.html'"></div>
+      <app-league-teams-table
+        [teams]="league.teams || []"
+        (teamsReordered)="onTeamsReordered($event)"
+        (editTeam)="onEditTeam($event)"
+        (removeTeam)="onRemoveTeam($event)">
+      </app-league-teams-table>
     </div>
   </section>
 </div>
 
-<div ng-if="isLoading" class="loading-spinner">
+<div *ngIf="isLoading" class="loading-spinner">
   Carregando detalhes da liga...
 </div>
 
-<div ng-if="!league && !isLoading" class="not-found-message">
+<div *ngIf="!league && !isLoading && !errorMsg" class="not-found-message">
   Liga não encontrada.
+</div>
+<div *ngIf="errorMsg" class="error-message">
+  {{ errorMsg }}
 </div>
