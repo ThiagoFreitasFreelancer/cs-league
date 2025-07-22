@@ -1,8 +1,20 @@
 # CsLeague
 
+CsLeague is a web application designed to manage and track Counter-Strike leagues, teams, and matches. Built with Angular, it provides an intuitive interface for administrators and participants to organize tournaments, view match results, and monitor team standings.
+
+## Features
+
+- League and tournament management
+- Team registration and profiles
+- Match scheduling and results tracking
+- Real-time updates and notifications
+- Responsive design for desktop and mobile
+
+## Getting Started
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
 
-## Development server
+### Development server
 
 To start a local development server, run:
 
@@ -12,7 +24,7 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+### Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
@@ -26,7 +38,7 @@ For a complete list of available schematics (such as `components`, `directives`,
 ng generate --help
 ```
 
-## Building
+### Building
 
 To build the project run:
 
@@ -36,7 +48,7 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+### Running unit tests
 
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
@@ -44,7 +56,7 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
-## Running end-to-end tests
+### Running end-to-end tests
 
 For end-to-end (e2e) testing, run:
 

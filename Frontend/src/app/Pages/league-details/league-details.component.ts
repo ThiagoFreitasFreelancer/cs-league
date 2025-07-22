@@ -7,7 +7,7 @@ import { League, Team } from '../../Models/interfaces';
 import { LeagueService } from '../../Services/league.service';
 import { AuthService } from '../../Services/auth.service';
 import { LeagueTeamsTableComponent } from './league-teams-table.component';
-import { LeagueBracketComponent } from './league-bracket.component';
+import { LeagueBracketComponent } from '../../Components/league-bracket/league-bracket.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -61,10 +61,6 @@ export class LeagueDetailsComponent implements OnInit {
         this.isLoading = false;
       }
     });
-  }
-
-  drop(event: CdkDragDrop<Team[]>): void {
-    // Não é mais usado diretamente, pois o LeagueTeamsTableComponent emite teamsReordered
   }
 
   onTeamsReordered(teams: Team[]) {

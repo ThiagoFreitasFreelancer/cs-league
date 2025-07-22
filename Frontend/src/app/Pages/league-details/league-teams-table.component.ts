@@ -11,29 +11,35 @@ import { Team } from '../../Models/interfaces';
     DragDropModule,
   ],
   template: `
-    <div class="team-list" cdkDropList (cdkDropListDropped)="onDrop($event)">
-      <div class="team-header-row">
-        <div class="header-cell">#</div>
-        <div class="header-cell">Logo</div>
-        <div class="header-cell">Nome</div>
-        <div class="header-cell">Vitórias</div>
-        <div class="header-cell">Derrotas</div>
-        <div class="header-cell">Pontos</div>
-        <div class="header-cell">Ações</div>
-      </div>
-      <div *ngFor="let team of teams; let i = index" class="team-row" cdkDrag>
-        <div>{{ i + 1 }}</div>
-        <div><img *ngIf="team.logoUrl" [src]="team.logoUrl" alt="Logo" width="32" height="32"></div>
-        <div>{{ team.name }}</div>
-        <div>{{ team.wins }}</div>
-        <div>{{ team.losses }}</div>
-        <div>{{ team.points }}</div>
-        <div>
-          <button (click)="editTeam.emit(team)">Editar</button>
-          <button (click)="removeTeam.emit(team.id)">Remover</button>
-        </div>
-      </div>
-    </div>
+    <table class="team-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Logo</th>
+      <th>Nome</th>
+      <th>Vitórias</th>
+      <th>Derrotas</th>
+      <th>Pontos</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of teams; let i = index" cdkDrag>
+      <td>{{ i + 1 }}</td>
+      <td>
+        <img *ngIf="team.logoUrl" [src]="team.logoUrl" alt="Logo do time" width="32" height="32">
+      </td>
+      <td>{{ team.name }}</td>
+      <td>{{ team.wins }}</td>
+      <td>{{ team.losses }}</td>
+      <td>{{ team.points }}</td>
+      <td>
+        <button (click)="editTeam.emit(team)">Editar</button>
+        <button (click)="removeTeam.emit(team.id)">Remover</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
   `,
   styleUrls: ['./league-details.component.css']
 })

@@ -1,0 +1,285 @@
+.team-table thead {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.team-table th {
+    padding: 15px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--secondary-border);
+    white-space: nowrap;
+    /* Evita que o texto do cabeçalho quebre */
+}
+
+.team-table th:first-child {
+    width: 30px;
+    /* Largura para a coluna # */
+    text-align: center;
+}
+
+.team-table th:nth-child(2) {
+    width: 50px;
+    /* Largura para a coluna Logo */
+}
+
+.team-table tbody tr {
+    transition: background-color 0.2s ease;
+    cursor: grab;
+    /* Indica que a linha é arrastável */
+}
+
+.team-table tbody tr:hover {
+    background-color: var(--row-hover-bg);
+}
+
+.team-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--header-bg);
+    /* Borda mais suave para células */
+    text-align: left;
+    color: var(--text-color);
+}
+
+.team-table tbody tr:last-child td {
+    border-bottom: none;
+    /* Remove a borda da última linha */
+}
+
+/* Estilos específicos para células */
+.team-table td:first-child {
+    font-weight: bold;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.team-table td:nth-child(2) img {
+    /* Estilo para o logo na segunda coluna */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+.team-table td:nth-child(3) {
+    /* Estilo para o nome do time */
+    font-weight: bold;
+}
+
+.team-table td:nth-child(4),
+.team-table td:nth-child(5),
+.team-table td:nth-child(6) {
+    /* Estilos para Vitórias, Derrotas, Pontos */
+    text-align: center;
+}
+
+.team-table td:last-child {
+    /* Estilo para a coluna de Ações */
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    white-space: nowrap;
+    /* Evita que os botões quebrem linha */
+}
+
+.team-table td button {
+    padding: 6px 10px;
+    font-size: 0.85em;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.team-table td .edit-button {
+    background-color: var(--edit-button-bg);
+    color: #333;
+}
+
+.team-table td .edit-button:hover {
+    background-color: var(--edit-button-hover-bg);
+}
+
+.team-table td .remove-button {
+    background-color: var(--remove-button-bg);
+    color: white;
+}
+
+.team-table td .remove-button:hover {
+    background-color: var(--remove-button-hover-bg);
+}
+
+.playoff-bracket {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    background-color: #2a2a4a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.bracket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bracket-header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #ffd700;
+    /* Dourado */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bracket-header .teams-count {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ccc;
+    background-color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.bracket-header .pro-badge {
+    background-color: #ff4500;
+    /* Laranja/Vermelho */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0 0 5px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-45deg) translate(-20px, -20px);
+    transform-origin: top left;
+    font-weight: bold;
+    font-size: 0.9em;
+    z-index: 10;
+}
+
+.bracket-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bracket-half {
+    display: flex;
+    flex-direction: row;
+    /* Rounds side-by-side */
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.bracket-half.left-half {
+    margin-right: 20px;
+}
+
+.bracket-half.right-half {
+    margin-left: 20px;
+}
+
+
+.bracket-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    min-width: 120px;
+}
+
+.bracket-match {
+    background-color: #3b3b6b;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    /* Espaço entre as partidas da mesma rodada */
+    padding: 8px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    min-height: 40px;
+    /* Para as caixas vazias */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #4a4a8a;
+}
+
+.team-placeholder {
+    padding: 3px 5px;
+    font-size: 0.85em;
+    color: #eee;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.team-placeholder:first-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.bracket-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    min-width: 150px;
+}
+
+.bracket-middle .bracket-round {
+    min-width: 150px;
+}
+
+/* Ajustes de margem para criar o visual em cascata (simplificado) */
+/* Isso seria muito mais complexo com pseudo-elementos e flex/grid para as linhas */
+.bracket-half.left-half .bracket-round:nth-child(2) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bracket-half.left-half .bracket-round:nth-child(3) {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.bracket-half.right-half .bracket-round:nth-child(2) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bracket-half.right-half .bracket-round:nth-child(3) {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.bracket-middle .bracket-match {
+    margin-bottom: 20px;
+}
+
+.bracket-middle .final-match {
+    margin-top: 40px;
+    /* Para posicionar a final */
+    background-color: #6a0572;
+    /* Cor diferente para a final */
+    border-color: #9d00a1;
+}
+
+/* Placeholder visual para as linhas que seriam desenhadas com CSS */
+.bracket-round>div:not(:last-child)::after,
+.bracket-match::before,
+.bracket-match::after {
+    /* Isso é apenas ilustrativo. As linhas reais seriam complexas com pseudo-elementos. */
+    /* content: '';
+            position: absolute;
+            background-color: #888;
+            z-index: 0; */
+}

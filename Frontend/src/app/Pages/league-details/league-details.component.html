@@ -12,7 +12,7 @@
   <section class="league-content">
     <div class="section-card">
       <h2 class="section-title">Chaveamento do Torneio</h2>
-      <app-league-bracket [teams]="league.teams || []"></app-league-bracket>
+      <app-league-bracket [teams]="league.teams"></app-league-bracket>
     </div>
 
     <div class="section-card league-teams-management" *ngIf="isAdmin">
